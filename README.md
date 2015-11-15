@@ -2,7 +2,7 @@
 
 [matplotlib]: http://matplotlib.org/
 
-Command to create log files for `ack` messages:
+Client command to create log files for `ack` messages (when the Node.js server is running):
 
 ```bash
 for i in 1 2 3 4 ; do for j in a b ; do 
@@ -11,7 +11,16 @@ done ;
 done ;
 ```
 
-Command to create histograms from the log files (requires a Python installation the [matplotlib] plotting library):
+Client command to create log files for `ack` messages (when the Python server is running):
+
+```bash
+for i in 1 2 3 4 ; do for j in a b ; do 
+  ./example/client/js/rpc-client.js -a0 -s0 -m0 -d0 --n-ack=$i > log/diff-py.ack@$i-$j.log ; 
+done ; 
+done ;
+```
+
+Plot command to create histograms from the log files (requires a Python installation with the [matplotlib] plotting library):
 
 ```bash
 for LOG in $(ls *.log) ; do 
