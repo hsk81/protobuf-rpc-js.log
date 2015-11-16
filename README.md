@@ -24,6 +24,6 @@ Plot command to create histograms from the log files (requires a Python installa
 
 ```bash
 for LOG in $(ls *.log) ; do 
-  echo $LOG ; cat $LOG | cut -d' ' -f2 | ./plot.py --xlabel="RTT [ms]" --suptitle="$LOG" -n 3.0 histogram ;
+  echo "$LOG" ; cat $LOG | cut -d' ' -f2 | ./plot.py --xlabel="RTT [ms]" --suptitle="|$LOG| = " -n 3.0 histogram ; 
 done ;
 ```
