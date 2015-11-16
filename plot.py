@@ -17,12 +17,13 @@ def histogram(arguments):
     data_avg = pylab.average(pylab.array(data))
     data_max = max(data)
     data_std = pylab.std(pylab.array(data))
+    data_len = len(data)
 
     data = filter(
         lambda n: data_avg + arguments.n * data_std > (n**2)**0.5, data)
 
     pyplot.hist(list(data), bins=arguments.bins)
-    pyplot.suptitle(arguments.suptitle)
+    pyplot.suptitle('{0}#{1}'.format(arguments.suptitle, data_len))
 
     if arguments.title is None:
         pyplot.title('min|avg|max|std = {0:0.2f}|{1:0.2f}|{2:0.2f}|{3:0.2f}'
@@ -64,7 +65,7 @@ if __name__ == "__main__":
         default=os.environ.get('PLOT_XLABEL', 'Bins'),
         help='Plot x-label')
     parser.add_argument('--ylabel', type=str,
-        default=os.environ.get('PLOT_YLABEL', 'Frequencey'),
+        default=os.environ.get('PLOT_YLABEL', 'Frequency'),
         help='Plot y-label')
 
     parser.add_argument('-n', type=float,
