@@ -1,5 +1,15 @@
 # ProtoBuf.Rpc.js: RTT measurements
 
+[matplotlib]: http://matplotlib.org
+[NodeJS]: https://nodejs.org/api
+[NPM]: https://www.npmjs.com
+[ProtoBuf.js]: https://github.com/dcodeIO/protobuf.js
+[ProtoBuf.Rpc.js]: https://github.com/hsk81/protobuf-rpc-js
+[Protocol Buffers]: https://developers.google.com/protocol-buffers/docs/proto3
+[Python]: https://www.python.org
+[QT/C++]: https://www.qt.io
+[Tornado]: http://www.tornadoweb.org/en/stable
+
 ## Overview
 
 The QT/C++ server in combination with NodeJS client provides the result with minimal latency of `440` micro-seconds and `755.7` messages per seconds:
@@ -66,7 +76,7 @@ Requires [NodeJS] and [NPM]:
     nodejs 5.0.0-2
     npm 3.4.0-1
     
-Ensure a running server first; then for $i in $(1 2 3 4 5 6 7 8), $j in $(a b) and $k in $(cpp js py):
+Ensure a running server first; then for `$i in $(1 2 3 4 5 6 7 8), $j in $(a b)` and `$k in $(cpp js py)`:
 
 ```bash
 cd pb-rpc-js.git && make build-npm
@@ -138,13 +148,3 @@ Plot command to create histograms from the log files:
 ```bash
 cat $LOG | cut -d' ' -f2 | ./plot.py --xlabel="RTT [ms]" --suptitle="|$LOG| = " -n 3.0 histogram ;
 ```
-
-[matplotlib]: http://matplotlib.org
-[NodeJS]: https://nodejs.org/api
-[NPM]: https://www.npmjs.com
-[ProtoBuf.js]: https://github.com/dcodeIO/protobuf.js
-[ProtoBuf.Rpc.js]: https://github.com/hsk81/protobuf-rpc-js
-[Protocol Buffers]: https://developers.google.com/protocol-buffers/docs/proto3
-[Python]: https://www.python.org
-[QT/C++]: https://www.qt.io
-[Tornado]: http://www.tornadoweb.org/en/stable
