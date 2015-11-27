@@ -23,13 +23,13 @@ Also the same combination provide the result with a latency of `980` micro-secon
 The corresponding client NodeJS commands to capture the data for the first image, where the QT/C++ Server was running:
 
 ```bash
-cd pb-rpc-js.git && ./example/client/js/rpc-client.js -a0 -s0 -m0 -d0 --n-ack=1 > log/diff-cpp.ack@1-a.log ;
+cd pb-rpc.git && ./example/client/js/rpc-client.js -a0 -s0 -m0 -d0 --n-ack=1 > log/diff-cpp.ack@1-a.log ;
 ```
 
 And for the second image:
 
 ```bash
-cd pb-rpc-js.git && ./example/client/js/rpc-client.js -a0 -s0 -m0 -d0 --n-ack=8 > log/diff-cpp.ack@8-a.log ;
+cd pb-rpc.git && ./example/client/js/rpc-client.js -a0 -s0 -m0 -d0 --n-ack=8 > log/diff-cpp.ack@8-a.log ;
 ```
 
 Increasing the `n-ack` parameter has the effect that the client effective tries to produce more ACK message per unit of time, since it increases the number of intervals (via `setInterval`) which trigger a message:
@@ -76,11 +76,16 @@ Requires [NodeJS] and [NPM]:
     nodejs 5.0.0-2
     npm 3.4.0-1
     
-Ensure a running server first; then for `$i in $(1 2 3 4 5 6 7 8), $j in $(a b)` and `$k in $(cpp js py)`:
+Then install NPM dependencies:
 
 ```bash
-cd pb-rpc-js.git && make build-npm
-cd pb-rpc-js.git && ./example/client/js/rpc-client.js -a0 -s0 -m0 -d0 --n-ack=$i > log/diff-$k.ack@$i-$j.log ;
+cd pb-rpc.git && npm install
+```
+
+Ensure a running server (NodeJS, QT/C++ or Python) first; then for `$i in $(1 2 3 4 5 6 7 8), $j in $(a b)` (and where `$s one-in $(js, cpp, py)`):
+
+```bash
+cd pb-rpc.git && ./example/client/js/rpc-client.js -a0 -s0 -m0 -d0 --n-ack=$i > log/diff-$s.ack@$i-$j.log ;
 ```
 
 ### Server NodeJS
@@ -91,8 +96,8 @@ Requires [NodeJS] and [NPM]:
     npm 3.4.0-1
     
 ```bash
-cd pb-rpc-js.git && make build-npm
-cd pb-rpc-js.git && ./example/server/js/rpc-server.js
+cd pb-rpc.git && make build-npm
+cd pb-rpc.git && ./example/server/js/rpc-server.js
 ```
 
 ### Server QT/C++
@@ -107,8 +112,8 @@ Requires QT5/C++:
     qt5-websockets 5.5.1-3  
 
 ```bash
-cd pb-rpc-js.git && make build-server-cpp
-cd pb-rpc-js.git && ./example/server/cpp/build/rpc-server
+cd pb-rpc.git && make build-server-cpp
+cd pb-rpc.git && ./example/server/cpp/build/rpc-server
 ```
 
 ### Server Python
@@ -133,8 +138,8 @@ Requires Python2 bindings for [Protocol Buffers]:
     python2-protobuf3 3.0.0_beta_1-2
 
 ```bash
-cd pb-rpc-js.git && make build-npm
-cd pb-rpc-js.git && ./example/server/js/rpc-server.js
+cd pb-rpc.git && make build-npm
+cd pb-rpc.git && ./example/server/js/rpc-server.js
 ```
 
 ### Plotting:
