@@ -82,10 +82,10 @@ Then install NPM dependencies:
 cd pb-rpc.git && npm install
 ```
 
-Ensure a running server (NodeJS, QT/C++ or Python) first; then for `$i in $(1 2 3 4 5 6 7 8), $j in $(a b)` (and where `$s one-in $(js, cpp, py)`):
+Ensure a running server (NodeJS, QT/C++ or Python) first; then `for $i in $(1 2 3 4 5 6 7 8), $j in $(a b)` (and where `$k one-in $(js, cpp, py)`):
 
 ```bash
-cd pb-rpc.git && ./example/client/js/rpc-client.js -a0 -s0 -m0 -d0 --n-ack=$i > log/diff-$s.ack@$i-$j.log ;
+cd pb-rpc.git && ./example/client/js/rpc-client.js -a0 -s0 -m0 -d0 --n-ack=$i > log/diff-$k.ack@$i-$j.log ;
 ```
 
 ### Server NodeJS
