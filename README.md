@@ -12,13 +12,13 @@
 
 ## Overview
 
-The QT/C++ server in combination with NodeJS client provides the result with minimal latency of `440` micro-seconds and `755.7` messages per seconds:
+The QT/C++ server in combination with NodeJS client provides the result with an average latency of `870` micro-seconds and `605.3` messages per seconds:
 
-![diff-cpp.ack@1-a.log](./ACK/img-[2015-11-17T18:42:18.566Z].png)
+![diff-cpp.ack@1-a.log](./ACK/img-[2015-12-04T19:09:08.133Z].png)
 
-Also the same combination provide the result with a latency of `980` micro-seconds and `4131.1` messages per seconds:
+Also the same combination provide the result with an average latency of `2.91` mill-seconds and `1459.2` messages per seconds:
 
-![diff-cpp.ack@8-a.log](./ACK/img-[2015-11-17T18:42:22.883Z].png)
+![diff-cpp.ack@8-a.log](./ACK/img-[2015-12-04T19:09:12.431Z].png)
 
 The corresponding client NodeJS commands to capture the data for the first image, where the QT/C++ Server was running:
 
